@@ -1,0 +1,44 @@
+.images {
+    max-width: 400px;
+    width: 40vmin;
+}
+
+.container {
+    max-width: 1000px;
+    padding: 5vmin;
+    margin: auto;
+    min-height: 100vh;
+}
+
+h1.prog-title {
+    width: fit-content;
+    margin: 5vh 0 0;
+}
+
+.by-tag {
+    width: fit-content;
+    margin: 0 0 5vh;
+}
+
+footer {
+    text-align: center;
+    padding: 5vh;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(7, 7, 26);
+    margin: 0;
+}
+
+footer a {
+    color: rgb(169, 229, 240);
+    text-decoration: none;
+}
+
+p a {
+    color: rgb(169, 229, 240);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(97, 197, 255);
+}
