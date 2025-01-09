@@ -1,6 +1,12 @@
 .images {
     max-width: 400px;
+    max-height: 400px;
     width: 40vmin;
+    height: 40vmin;
+    margin: 2vmin;
+    border-color: white;
+    border: solid;
+    object-fit: contain;
 }
 
 .container {
@@ -41,4 +47,8 @@ p a {
 
 a:hover {
     color: rgb(97, 197, 255);
+}
+
+.image-preview h2 {
+    margin-bottom: 1vmin;
 }

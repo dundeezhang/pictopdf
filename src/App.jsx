@@ -19,6 +19,10 @@ function App() {
         ]);
     };
 
+    const clearImages = () => {
+        setImages([]);
+    };
+
     const convertToPDF = async () => {
         const pdfDoc = await PDFDocument.create();
         for (const { file } of images) {
@@ -61,7 +65,7 @@ function App() {
                 <input
                     type="file"
                     accept="image/*"
-                    className="buttons"
+                    className="picsub"
                     multiple
                     onChange={handleImageUpload}
                 />
@@ -74,6 +78,10 @@ function App() {
                 </p>
                 <div className="image-preview">
                     <h2>Pictures:</h2>
+                    <button onClick={clearImages} className="clear-pic-button">
+                        Press to Clear Images
+                    </button>
+                    <br />
                     {images.map((image, index) => (
                         <img
                             key={index}
