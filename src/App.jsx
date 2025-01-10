@@ -30,17 +30,24 @@ function App() {
             let img;
             if (file.type === "image/jpeg") {
                 img = await pdfDoc.embedJpg(imgBytes);
+                const page = pdfDoc.addPage([img.width, img.height]);
+                page.drawImage(img, {
+                    x: 0,
+                    y: 0,
+                    width: img.width,
+                    height: img.height,
+                });
             } else if (file.type === "image/png") {
                 img = await pdfDoc.embedPng(imgBytes);
+                const { width, height } = img.scale(1);
+                const page = pdfDoc.addPage([width, height]);
+                page.drawImage(img, {
+                    x: 0,
+                    y: 0,
+                    width: width,
+                    height: height,
+                });
             }
-            const { width, height } = img.scale(1);
-            const page = pdfDoc.addPage([width, height]);
-            page.drawImage(img, {
-                x: 0,
-                y: 0,
-                width: width,
-                height: height,
-            });
         }
         const pdfBytes = await pdfDoc.save();
         const blob = new Blob([pdfBytes], { type: "application/pdf" });
@@ -62,25 +69,40 @@ function App() {
                     with you and whoever you choose to share the .pdf with.
                 </p>
                 <h2>Submit your Image Files:</h2>
+                <div className="button-div">
+                    <label htmlFor="picsub" className="buttons">
+                        Upload Pictures
+                    </label>
+                </div>
+
                 <input
                     type="file"
+                    id="picsub"
                     accept="image/*"
                     className="picsub"
                     multiple
+                    style={{ display: "none" }}
                     onChange={handleImageUpload}
                 />
-                <button onClick={convertToPDF} className="buttons">
-                    Press to Convert to PDF
-                </button>
+                <div className="button-div">
+                    <label onClick={convertToPDF} className="buttons">
+                        Press to Convert to PDF
+                    </label>
+                </div>
+
                 <p>
-                    Note that JPEG files may not keep original aspect ratio when
-                    converted to a PDF file.
+                    Note that JPEG files may not display well on the .pdf files
+                    on Firefox. Please use dedicated PDF viewers or use
+                    Chromium-based browsers to view the .pdf files.
                 </p>
                 <div className="image-preview">
                     <h2>Pictures:</h2>
-                    <button onClick={clearImages} className="clear-pic-button">
-                        Press to Clear Images
-                    </button>
+                    <div className="button-div">
+                        <label onClick={clearImages} className="buttons">
+                            Press to Clear Images
+                        </label>
+                    </div>
+
                     <br />
                     {images.map((image, index) => (
                         <img

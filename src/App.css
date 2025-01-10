@@ -49,6 +49,24 @@ a:hover {
     color: rgb(97, 197, 255);
 }
 
-.image-preview h2 {
-    margin-bottom: 1vmin;
+.buttons {
+    font-size: 12px;
+    margin: 5vmin 2vmin 0 0;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    border: solid;
+    border-color: grey;
+}
+
+.buttons:hover {
+    background-color: rgb(169, 229, 240);
+}
+
+.button-div {
+    width: fit-content;
+    display: inline-block;
+    min-width: 200px;
+    height: 50px;
 }
