@@ -6,6 +6,7 @@ import "./App.css";
 
 function App() {
     const [images, setImages] = useState([]);
+    const currYear = new Date().getFullYear();
 
     const handleImageUpload = (event) => {
         const files = Array.from(event.target.files);
@@ -121,7 +122,7 @@ function App() {
                 </p>
             </div>
             <footer>
-                <p>Dundee Zhang 2025 - Some rights reserved</p>
+                <p>Dundee Zhang {currYear} - Some rights reserved</p>
                 <a href="https://dundeezhang.com">dundeezhang.com</a>
             </footer>
         </div>
